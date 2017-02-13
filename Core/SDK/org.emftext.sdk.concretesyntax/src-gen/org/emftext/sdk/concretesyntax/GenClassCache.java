@@ -28,10 +28,10 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.emftext.sdk.concretesyntax.GenClassCache#get_qualifiedInterfaceNameCache <em>qualified Interface Name Cache</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.emftext.sdk.concretesyntax.ConcretesyntaxPackage#getGenClassCache()
  * @model

@@ -24,10 +24,10 @@ package org.emftext.sdk.concretesyntax;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.emftext.sdk.concretesyntax.RegexReference#getTarget <em>Target</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.emftext.sdk.concretesyntax.ConcretesyntaxPackage#getRegexReference()
  * @model

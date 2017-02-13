@@ -25,10 +25,10 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.emftext.sdk.concretesyntax.ReferencableTokenDefinition#getAttributeReferences <em>Attribute References</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.emftext.sdk.concretesyntax.ConcretesyntaxPackage#getReferencableTokenDefinition()
  * @model abstract="true"

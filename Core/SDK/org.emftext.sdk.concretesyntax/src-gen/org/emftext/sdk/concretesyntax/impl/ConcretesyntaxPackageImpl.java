@@ -2486,6 +2486,8 @@ public class ConcretesyntaxPackageImpl extends EPackageImpl implements Concretes
 		addEEnumLiteral(optionTypesEEnum, OptionTypes.CASE_INSENSITIVE_KEYWORDS);
 		addEEnumLiteral(optionTypesEEnum, OptionTypes.OVERRIDE_FOLLOW_SET_GROUP_LIST);
 		addEEnumLiteral(optionTypesEEnum, OptionTypes.OVERRIDE_FOLLOW_SET_GROUP);
+		addEEnumLiteral(optionTypesEEnum, OptionTypes.OVERRIDE_DAMAGER_REPAIRER);
+		addEEnumLiteral(optionTypesEEnum, OptionTypes.REFERENCED_RESOURCE_EXTENSIONS);
 
 		initEEnum(fontStyleEEnum, FontStyle.class, "FontStyle");
 		addEEnumLiteral(fontStyleEEnum, FontStyle.BOLD);
@@ -2587,7 +2589,7 @@ public class ConcretesyntaxPackageImpl extends EPackageImpl implements Concretes
 		   source, 
 		   new String[] {
 			 "body", "return rule.getSyntax() != this;",
-			 "documentation", "Returns true if the given rule was defined in the given syntax.\r\nIf the rule is defined in an imported syntax, this method returns false.\r\n \r\n@param syntax the syntax that refers to the rule\r\n@param rule the rule to check\r\n@return true if the rule is contained, false if it is imported"
+			 "documentation", "\r\n Returns true if the given rule was defined in the given syntax.\r\n If the rule is defined in an imported syntax, this method returns\r\n false.\r\n \r\n @param syntax the syntax that refers to the rule\r\n @param rule the rule to check\r\n @return true if the rule is contained, false if it is imported\r\n"
 		   });	
 		addAnnotation
 		  (concreteSyntaxEClass.getEOperations().get(8), 
@@ -2601,14 +2603,14 @@ public class ConcretesyntaxPackageImpl extends EPackageImpl implements Concretes
 		   source, 
 		   new String[] {
 			 "body", "java.util.Collection< org.emftext.sdk.concretesyntax.Rule> rules = getAllRules();\norg.eclipse.emf.common.util.EList< org.eclipse.emf.codegen.ecore.genmodel.GenClass> foundGenClasses = new org.eclipse.emf.common.util.BasicEList< org.eclipse.emf.codegen.ecore.genmodel.GenClass>();\r\n\nfor ( org.emftext.sdk.concretesyntax.Rule rule : rules) {\n\tif (excludeOperatorRules && rule.getOperatorAnnotation() != null) {\n\t\tcontinue;\n\t}\n\torg.eclipse.emf.codegen.ecore.genmodel.GenClass subClassCand = rule.getMetaclass();\n\tfoundGenClasses.add(subClassCand);\n}\nreturn foundGenClasses;",
-			 "documentation", "Collects all the subclasses for which concrete syntax is defined."
+			 "documentation", "\r\n Collects all the subclasses for which concrete syntax is defined.\r\n"
 		   });	
 		addAnnotation
 		  (concreteSyntaxEClass.getEOperations().get(10), 
 		   source, 
 		   new String[] {
 			 "body", "org.eclipse.emf.common.util.EList< org.eclipse.emf.codegen.ecore.genmodel.GenClass> subClasses = new org.eclipse.emf.common.util.BasicEList< org.eclipse.emf.codegen.ecore.genmodel.GenClass>();\r\n\norg.eclipse.emf.ecore.EClass ecoreClass = superClass.getEcoreClass();\norg.emftext.sdk.concretesyntax.EClassUtil eClassUtil = getEClassUtil();\nfor ( org.eclipse.emf.codegen.ecore.genmodel.GenClass subClassCand : getClassesWithSyntax(excludeOperatorRules)) {\n\tif (eClassUtil.isSubClass(subClassCand.getEcoreClass(), ecoreClass)) {\n\t\tsubClasses.add(subClassCand);\n\t}\n}\nreturn subClasses;",
-			 "documentation", "Collects all the subclasses for which concrete syntax is defined."
+			 "documentation", "\r\n Collects all the subclasses for which concrete syntax is defined.\r\n"
 		   });	
 		addAnnotation
 		  (concreteSyntaxEClass.getEOperations().get(11), 
@@ -4877,6 +4879,12 @@ public class ConcretesyntaxPackageImpl extends EPackageImpl implements Concretes
 			 "documentation", "If set to <code>false</code>, the FollowSetGroup class will not be overridden. The default value for this option is <code>true</code>."
 		   });	
 		addAnnotation
+		  (optionTypesEEnum.getELiterals().get(313), 
+		   source, 
+		   new String[] {
+			 "documentation", "If set to <code>false</code>, the DamagerRepairer class will not be overridden. It can be customized when syntax coloring is intended to be optimized. The default is <code>true</code>."
+		   });	
+		addAnnotation
 		  (tokenStyleEClass, 
 		   source, 
 		   new String[] {
@@ -4905,7 +4913,7 @@ public class ConcretesyntaxPackageImpl extends EPackageImpl implements Concretes
 		   source, 
 		   new String[] {
 			 "body", "for ( org.emftext.sdk.concretesyntax.KeyValuePair parameter : getParameters()) {\n\tif (key.equals(parameter.getKey())){\n\t\tjava.lang.String value = parameter.getValue();\n\t\treturn value;\n\t}\n}\nreturn null;",
-			 "documentation", "Returns the annotation value for the given key."
+			 "documentation", "\r\n Returns the annotation value for the given key.\r\n"
 		   });	
 		addAnnotation
 		  (genClassCacheEClass.getEOperations().get(0), 

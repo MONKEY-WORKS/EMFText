@@ -25,11 +25,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.emftext.sdk.concretesyntax.KeyValuePair#getKey <em>Key</em>}</li>
  *   <li>{@link org.emftext.sdk.concretesyntax.KeyValuePair#getValue <em>Value</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.emftext.sdk.concretesyntax.ConcretesyntaxPackage#getKeyValuePair()
  * @model

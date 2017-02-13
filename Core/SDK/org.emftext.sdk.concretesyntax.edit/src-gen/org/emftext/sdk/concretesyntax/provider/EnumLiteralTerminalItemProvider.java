@@ -54,13 +54,7 @@ import org.emftext.sdk.concretesyntax.EnumLiteralTerminal;
  * @generated
  */
 public class EnumLiteralTerminalItemProvider
-	extends SyntaxElementItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends SyntaxElementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

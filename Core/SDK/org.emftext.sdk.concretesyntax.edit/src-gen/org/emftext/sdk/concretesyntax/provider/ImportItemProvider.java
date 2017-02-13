@@ -44,13 +44,7 @@ import org.emftext.sdk.concretesyntax.Import;
  * @generated
  */
 public class ImportItemProvider
-	extends GenPackageDependentElementItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends GenPackageDependentElementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

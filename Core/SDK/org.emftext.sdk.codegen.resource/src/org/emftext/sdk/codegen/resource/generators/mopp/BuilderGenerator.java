@@ -18,7 +18,7 @@ package org.emftext.sdk.codegen.resource.generators.mopp;
 import static org.emftext.sdk.codegen.resource.ClassNameConstants.I_PROGRESS_MONITOR;
 import static org.emftext.sdk.codegen.resource.ClassNameConstants.I_STATUS;
 import static org.emftext.sdk.codegen.resource.ClassNameConstants.STATUS;
-import static org.emftext.sdk.codegen.resource.ClassNameConstants.SUB_PROGRESS_MONITOR;
+import static org.emftext.sdk.codegen.resource.ClassNameConstants.SUB_MONITOR;
 import static org.emftext.sdk.codegen.resource.ClassNameConstants.URI;
 
 import org.emftext.sdk.OptionManager;
@@ -67,7 +67,7 @@ public class BuilderGenerator extends JavaBaseGenerator<ArtifactParameter<Genera
 		sc.addComment("Set option '" + OptionTypes.OVERRIDE_BUILDER + "' to 'false' and then perform build here.");
 		sc.addLineBreak();
 		sc.addComment("We use one tick from the parent monitor because the BuilderAdapter reserves one tick for the Builder.");
-		sc.add(SUB_PROGRESS_MONITOR(sc) + " subMonitor = new " + SUB_PROGRESS_MONITOR(sc) + "(monitor, 1);");
+		sc.add(SUB_MONITOR(sc) + " subMonitor = " + SUB_MONITOR(sc) + ".convert(monitor, 1);");
 		sc.add("subMonitor.beginTask(\"Building \" + resource.getURI().lastSegment(), 10);");
 		sc.addComment("The actual work of the builder can be performed here.");
 		sc.add("subMonitor.worked(10);");

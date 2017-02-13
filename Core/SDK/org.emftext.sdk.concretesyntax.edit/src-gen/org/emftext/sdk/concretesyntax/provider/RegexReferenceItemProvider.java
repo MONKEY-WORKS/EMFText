@@ -44,13 +44,7 @@ import org.emftext.sdk.concretesyntax.RegexReference;
  * @generated
  */
 public class RegexReferenceItemProvider
-	extends RegexPartItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends RegexPartItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

@@ -132,6 +132,8 @@ public enum OperatorAnnotationProperty implements Enumerator {
 	 * Returns the '<em><b>Operator Annotation Property</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param literal the literal.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static OperatorAnnotationProperty get(String literal) {
@@ -148,6 +150,8 @@ public enum OperatorAnnotationProperty implements Enumerator {
 	 * Returns the '<em><b>Operator Annotation Property</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param name the name.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static OperatorAnnotationProperty getByName(String name) {
@@ -164,6 +168,8 @@ public enum OperatorAnnotationProperty implements Enumerator {
 	 * Returns the '<em><b>Operator Annotation Property</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param value the integer value.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static OperatorAnnotationProperty get(int value) {

@@ -30,12 +30,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.emftext.sdk.concretesyntax.TokenStyle#getTokenNames <em>Token Names</em>}</li>
  *   <li>{@link org.emftext.sdk.concretesyntax.TokenStyle#getRgb <em>Rgb</em>}</li>
  *   <li>{@link org.emftext.sdk.concretesyntax.TokenStyle#getFontStyles <em>Font Styles</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.emftext.sdk.concretesyntax.ConcretesyntaxPackage#getTokenStyle()
  * @model

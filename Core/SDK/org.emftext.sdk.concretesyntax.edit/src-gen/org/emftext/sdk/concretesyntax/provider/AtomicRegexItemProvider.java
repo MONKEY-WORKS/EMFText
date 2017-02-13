@@ -46,13 +46,7 @@ import org.emftext.sdk.concretesyntax.ConcretesyntaxPackage;
  * @generated
  */
 public class AtomicRegexItemProvider
-	extends RegexPartItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends RegexPartItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

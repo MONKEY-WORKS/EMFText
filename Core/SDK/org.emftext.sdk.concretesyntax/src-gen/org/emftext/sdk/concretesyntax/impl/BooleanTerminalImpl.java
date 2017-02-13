@@ -28,11 +28,11 @@ import org.emftext.sdk.concretesyntax.ConcretesyntaxPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.emftext.sdk.concretesyntax.impl.BooleanTerminalImpl#getTrueLiteral <em>True Literal</em>}</li>
  *   <li>{@link org.emftext.sdk.concretesyntax.impl.BooleanTerminalImpl#getFalseLiteral <em>False Literal</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

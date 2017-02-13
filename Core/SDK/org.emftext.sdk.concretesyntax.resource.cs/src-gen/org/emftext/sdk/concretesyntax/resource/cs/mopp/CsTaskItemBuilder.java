@@ -27,7 +27,7 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.core.runtime.SubProgressMonitor;
+import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 
 /**
@@ -41,7 +41,7 @@ public class CsTaskItemBuilder {
 	public void build(IFile resource, ResourceSet resourceSet, IProgressMonitor monitor) {
 		// We use one tick from the parent monitor because the BuilderAdapter reserves one
 		// tick for finding task items.
-		SubProgressMonitor subMonitor = new SubProgressMonitor(monitor, 1);
+		SubMonitor subMonitor = SubMonitor.convert(monitor, 1);
 		// We define the overall work to be 3 ticks (removing markers, scanning the
 		// resource, creating new markers).
 		subMonitor.beginTask("Searching for task items in " + new org.emftext.sdk.concretesyntax.resource.cs.mopp.CsMetaInformation().getSyntaxName() + " files", 3);

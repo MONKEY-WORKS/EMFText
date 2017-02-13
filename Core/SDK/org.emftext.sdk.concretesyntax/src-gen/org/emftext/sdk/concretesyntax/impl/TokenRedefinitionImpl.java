@@ -46,6 +46,7 @@ import org.emftext.sdk.concretesyntax.TokenRedefinition;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.emftext.sdk.concretesyntax.impl.TokenRedefinitionImpl#getRegex <em>Regex</em>}</li>
  *   <li>{@link org.emftext.sdk.concretesyntax.impl.TokenRedefinitionImpl#getRegexParts <em>Regex Parts</em>}</li>
@@ -54,7 +55,6 @@ import org.emftext.sdk.concretesyntax.TokenRedefinition;
  *   <li>{@link org.emftext.sdk.concretesyntax.impl.TokenRedefinitionImpl#getAttributeName <em>Attribute Name</em>}</li>
  *   <li>{@link org.emftext.sdk.concretesyntax.impl.TokenRedefinitionImpl#getRedefinedToken <em>Redefined Token</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

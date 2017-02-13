@@ -27,8 +27,6 @@ import org.emftext.sdk.concretesyntax.RegexComposer;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Regex Composer</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

@@ -41,13 +41,13 @@ import org.emftext.sdk.concretesyntax.RegexOwner;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.emftext.sdk.concretesyntax.impl.CompleteTokenDefinitionImpl#getRegex <em>Regex</em>}</li>
  *   <li>{@link org.emftext.sdk.concretesyntax.impl.CompleteTokenDefinitionImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.emftext.sdk.concretesyntax.impl.CompleteTokenDefinitionImpl#getAttributeReferences <em>Attribute References</em>}</li>
  *   <li>{@link org.emftext.sdk.concretesyntax.impl.CompleteTokenDefinitionImpl#getAttributeName <em>Attribute Name</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

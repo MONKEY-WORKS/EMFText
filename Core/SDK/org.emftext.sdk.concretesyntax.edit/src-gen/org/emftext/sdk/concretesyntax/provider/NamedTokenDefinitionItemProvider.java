@@ -54,13 +54,7 @@ import org.emftext.sdk.concretesyntax.NamedTokenDefinition;
  * @generated
  */
 public class NamedTokenDefinitionItemProvider
-	extends AbstractTokenDefinitionItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends AbstractTokenDefinitionItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

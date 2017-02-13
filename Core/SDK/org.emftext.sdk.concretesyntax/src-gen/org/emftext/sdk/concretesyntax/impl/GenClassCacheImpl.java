@@ -35,10 +35,10 @@ import org.emftext.sdk.concretesyntax.GenClassCache;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.emftext.sdk.concretesyntax.impl.GenClassCacheImpl#get_qualifiedInterfaceNameCache <em>qualified Interface Name Cache</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -30,11 +30,11 @@ import org.emftext.sdk.concretesyntax.EnumLiteralTerminal;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.emftext.sdk.concretesyntax.impl.EnumLiteralTerminalImpl#getLiteral <em>Literal</em>}</li>
  *   <li>{@link org.emftext.sdk.concretesyntax.impl.EnumLiteralTerminalImpl#getText <em>Text</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

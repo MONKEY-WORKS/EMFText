@@ -46,13 +46,7 @@ import org.emftext.sdk.concretesyntax.QuotedTokenDefinition;
  * @generated
  */
 public class QuotedTokenDefinitionItemProvider
-	extends CompleteTokenDefinitionItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends CompleteTokenDefinitionItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

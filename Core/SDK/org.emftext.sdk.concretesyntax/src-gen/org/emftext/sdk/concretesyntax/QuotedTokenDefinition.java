@@ -24,13 +24,13 @@ package org.emftext.sdk.concretesyntax;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.emftext.sdk.concretesyntax.QuotedTokenDefinition#getPrefix <em>Prefix</em>}</li>
  *   <li>{@link org.emftext.sdk.concretesyntax.QuotedTokenDefinition#getSuffix <em>Suffix</em>}</li>
  *   <li>{@link org.emftext.sdk.concretesyntax.QuotedTokenDefinition#getEscapeCharacter <em>Escape Character</em>}</li>
  *   <li>{@link org.emftext.sdk.concretesyntax.QuotedTokenDefinition#getSynthesizedRegex <em>Synthesized Regex</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.emftext.sdk.concretesyntax.ConcretesyntaxPackage#getQuotedTokenDefinition()
  * @model

@@ -24,12 +24,12 @@ package org.emftext.sdk.concretesyntax;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.emftext.sdk.concretesyntax.PlaceholderInQuotes#getPrefix <em>Prefix</em>}</li>
  *   <li>{@link org.emftext.sdk.concretesyntax.PlaceholderInQuotes#getSuffix <em>Suffix</em>}</li>
  *   <li>{@link org.emftext.sdk.concretesyntax.PlaceholderInQuotes#getEscapeCharacter <em>Escape Character</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.emftext.sdk.concretesyntax.ConcretesyntaxPackage#getPlaceholderInQuotes()
  * @model

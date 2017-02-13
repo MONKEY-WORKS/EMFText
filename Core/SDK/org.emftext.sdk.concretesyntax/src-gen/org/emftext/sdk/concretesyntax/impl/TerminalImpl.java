@@ -30,10 +30,10 @@ import org.emftext.sdk.concretesyntax.Terminal;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.emftext.sdk.concretesyntax.impl.TerminalImpl#getFeature <em>Feature</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

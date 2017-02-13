@@ -34,12 +34,12 @@ import org.emftext.sdk.concretesyntax.TokenStyle;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.emftext.sdk.concretesyntax.impl.TokenStyleImpl#getTokenNames <em>Token Names</em>}</li>
  *   <li>{@link org.emftext.sdk.concretesyntax.impl.TokenStyleImpl#getRgb <em>Rgb</em>}</li>
  *   <li>{@link org.emftext.sdk.concretesyntax.impl.TokenStyleImpl#getFontStyles <em>Font Styles</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

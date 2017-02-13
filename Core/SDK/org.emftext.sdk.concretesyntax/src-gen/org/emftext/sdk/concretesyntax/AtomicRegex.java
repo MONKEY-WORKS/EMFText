@@ -24,10 +24,10 @@ package org.emftext.sdk.concretesyntax;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.emftext.sdk.concretesyntax.AtomicRegex#getAtomicExpression <em>Atomic Expression</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.emftext.sdk.concretesyntax.ConcretesyntaxPackage#getAtomicRegex()
  * @model

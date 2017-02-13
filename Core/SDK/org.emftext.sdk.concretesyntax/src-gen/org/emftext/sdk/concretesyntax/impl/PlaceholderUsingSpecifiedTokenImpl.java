@@ -24,8 +24,6 @@ import org.emftext.sdk.concretesyntax.PlaceholderUsingSpecifiedToken;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Placeholder Using Specified Token</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

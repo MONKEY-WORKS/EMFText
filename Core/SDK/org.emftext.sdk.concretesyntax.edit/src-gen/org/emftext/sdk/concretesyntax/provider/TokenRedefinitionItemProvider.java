@@ -56,13 +56,7 @@ import org.emftext.sdk.concretesyntax.TokenRedefinition;
  * @generated
  */
 public class TokenRedefinitionItemProvider
-	extends AnnotableItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends AnnotableItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

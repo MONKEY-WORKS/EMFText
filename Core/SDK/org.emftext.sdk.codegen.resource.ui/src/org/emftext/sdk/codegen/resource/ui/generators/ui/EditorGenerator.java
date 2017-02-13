@@ -17,6 +17,7 @@ package org.emftext.sdk.codegen.resource.ui.generators.ui;
 
 import static de.devboost.codecomposers.java.ClassNameConstants.ITERATOR;
 import static de.devboost.codecomposers.java.ClassNameConstants.LIST;
+import static org.emftext.sdk.codegen.resource.ClassNameConstants.ARRAYS;
 import static org.emftext.sdk.codegen.resource.ClassNameConstants.COLLECTION;
 import static org.emftext.sdk.codegen.resource.ClassNameConstants.COLLECTIONS;
 import static org.emftext.sdk.codegen.resource.ClassNameConstants.CORE_EXCEPTION;
@@ -89,10 +90,17 @@ import static org.emftext.sdk.codegen.resource.ui.UIClassNameConstants.TEXT_EDIT
 import static org.emftext.sdk.codegen.resource.ui.UIClassNameConstants.TEXT_VIEWER;
 import static org.emftext.sdk.codegen.resource.ui.UIClassNameConstants.VIEWER;
 
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
+
+import org.emftext.sdk.OptionManager;
 import org.emftext.sdk.codegen.parameters.ArtifactParameter;
 import org.emftext.sdk.codegen.resource.GenerationContext;
 import org.emftext.sdk.codegen.resource.ui.TextResourceUIArtifacts;
 import org.emftext.sdk.codegen.resource.ui.generators.UIJavaBaseGenerator;
+import org.emftext.sdk.concretesyntax.OptionTypes;
 
 import de.devboost.codecomposers.java.JavaComposite;
 
@@ -106,37 +114,77 @@ public class EditorGenerator extends UIJavaBaseGenerator<ArtifactParameter<Gener
 		jc.addLineBreak();
 		jc.addImportsPlaceholder();
 		jc.addLineBreak();
-		jc.addJavadoc("A text editor for '" + context.getConcreteSyntax().getName() + "' models."
-				, "<p>"
-				, "This editor has id <code>" + context.getQualifiedClassName(TextResourceUIArtifacts.EDITOR) + "</code>"
-				, "The editor's context menu has id <code>" + context.getEditorContextID() + "</code>. "
-				, "The editor's ruler context menu has id <code>" + context.getEditorRulerID() + "</code>."
-				, "The editor's editing context has id <code>" + context.getEditorScopeID() + "</code>."
-				, "</p>");
-		jc.add("public class " + getResourceClassName() + " extends " + TEXT_EDITOR(jc) + " implements " + I_EDITING_DOMAIN_PROVIDER(jc) + ", " + I_SELECTION_PROVIDER(jc) + ", " + I_SELECTION_CHANGED_LISTENER(jc) + ", " + I_VIEWER_PROVIDER(jc) + ", " + iResourceProviderClassName + ", " + iBracketHandlerProviderClassName + ", " + iAnnotationModelProviderClassName + " {");
+		jc.addJavadoc("A text editor for '" + context.getConcreteSyntax().getName() + "' models.", "<p>",
+				"This editor has id <code>" + context.getQualifiedClassName(TextResourceUIArtifacts.EDITOR) + "</code>",
+				"The editor's context menu has id <code>" + context.getEditorContextID() + "</code>. ",
+				"The editor's ruler context menu has id <code>" + context.getEditorRulerID() + "</code>.",
+				"The editor's editing context has id <code>" + context.getEditorScopeID() + "</code>.", "</p>");
+		jc.add("public class " + getResourceClassName() + " extends " + TEXT_EDITOR(jc) + " implements "
+				+ I_EDITING_DOMAIN_PROVIDER(jc) + ", " + I_SELECTION_PROVIDER(jc) + ", "
+				+ I_SELECTION_CHANGED_LISTENER(jc) + ", " + I_VIEWER_PROVIDER(jc) + ", " + iResourceProviderClassName
+				+ ", " + iBracketHandlerProviderClassName + ", " + iAnnotationModelProviderClassName + " {");
 		jc.addLineBreak();
 
+		addStaticFields(jc);
 		addFields(jc);
 		addConstructor(jc);
 		addMethods(jc);
 
 		jc.add("}");
 	}
-	
+
+	private void addStaticFields(JavaComposite jc) {
+		String option = OptionManager.INSTANCE.getStringOptionValue(getContext().getConcreteSyntax(),
+				OptionTypes.REFERENCED_RESOURCE_EXTENSIONS);
+
+		if (option == null) {
+			return;
+		}
+
+		StringBuilder sb = new StringBuilder(
+				"private static final " + COLLECTION(jc) + "<String> REFERENCED_EXTENSIONS = ");
+		Collection<String> additional = OptionManager.INSTANCE.getStringOptionValueAsCollection(
+				getContext().getConcreteSyntax(), OptionTypes.ADDITIONAL_FILE_EXTENSIONS);
+
+		Set<String> extensions = new HashSet<String>(additional);
+		extensions.add(getContext().getConcreteSyntax().getName());
+
+		if (!option.isEmpty()) {
+			extensions.addAll(OptionManager.INSTANCE.getStringOptionValueAsCollection(getContext().getConcreteSyntax(),
+					OptionTypes.REFERENCED_RESOURCE_EXTENSIONS));
+		}
+
+		sb.append(ARRAYS(jc) + ".asList(");
+		final Iterator<String> it = extensions.iterator();
+		while (it.hasNext()) {
+			sb.append("\"" + it.next() + "\"");
+			if (it.hasNext()) {
+				sb.append(", ");
+			}
+		}
+		sb.append(");");
+		jc.add(sb);
+		jc.addLineBreak();
+	}
+
 	private void addFields(JavaComposite jc) {
 		jc.add("private " + highlightingClassName + " highlighting;");
 		jc.add("private " + PROJECTION_SUPPORT(jc) + " projectionSupport;");
 		jc.add("private " + codeFoldingManagerClassName + " codeFoldingManager;");
-		jc.add("private " + backgroundParsingStrategyClassName + " bgParsingStrategy = new " + backgroundParsingStrategyClassName + "();");
-		jc.add("private " + COLLECTION(jc) + "<" + iBackgroundParsingListenerClassName + "> bgParsingListeners = new " + ARRAY_LIST(jc) + "<" + iBackgroundParsingListenerClassName + ">();");
+		jc.add("private " + backgroundParsingStrategyClassName + " bgParsingStrategy = new "
+				+ backgroundParsingStrategyClassName + "();");
+		jc.add("private " + COLLECTION(jc) + "<" + iBackgroundParsingListenerClassName + "> bgParsingListeners = new "
+				+ ARRAY_LIST(jc) + "<" + iBackgroundParsingListenerClassName + ">();");
 		jc.add("private " + colorManagerClassName + " colorManager = new " + colorManagerClassName + "();");
 		jc.add("private " + outlinePageClassName + " outlinePage;");
 		jc.add("private " + iTextResourceClassName + " resource;");
-		jc.add("private " + I_RESOURCE_CHANGE_LISTENER(jc) + " resourceChangeListener = new ModelResourceChangeListener();");
+		jc.add("private " + I_RESOURCE_CHANGE_LISTENER(jc)
+				+ " resourceChangeListener = new ModelResourceChangeListener();");
 		jc.add("private " + propertySheetPageClassName + " propertySheetPage;");
 		jc.add("private " + EDITING_DOMAIN(jc) + " editingDomain;");
 		jc.add("private " + iBracketHandlerClassName + " bracketHandler;");
-		jc.add("private " + LIST(jc) + "<" + I_SELECTION_CHANGED_LISTENER(jc) + "> selectionChangedListeners = new " + LINKED_LIST(jc) + "<" + I_SELECTION_CHANGED_LISTENER(jc) + ">();");
+		jc.add("private " + LIST(jc) + "<" + I_SELECTION_CHANGED_LISTENER(jc) + "> selectionChangedListeners = new "
+				+ LINKED_LIST(jc) + "<" + I_SELECTION_CHANGED_LISTENER(jc) + ">();");
 		jc.add("private " + I_SELECTION(jc) + " editorSelection;");
 		jc.addLineBreak();
 	}
@@ -144,8 +192,10 @@ public class EditorGenerator extends UIJavaBaseGenerator<ArtifactParameter<Gener
 	private void addConstructor(JavaComposite jc) {
 		jc.add("public " + getResourceClassName() + "() {");
 		jc.add("super();");
-		jc.add("setSourceViewerConfiguration(new " + sourceViewerConfigurationClassName + "(this, this, colorManager));");
-		jc.add(RESOURCES_PLUGIN(jc) + ".getWorkspace().addResourceChangeListener(resourceChangeListener, " + I_RESOURCE_CHANGE_EVENT(jc) + ".POST_CHANGE);");
+		jc.add("setSourceViewerConfiguration(new " + sourceViewerConfigurationClassName
+				+ "(this, this, colorManager));");
+		jc.add(RESOURCES_PLUGIN(jc) + ".getWorkspace().addResourceChangeListener(resourceChangeListener, "
+				+ I_RESOURCE_CHANGE_EVENT(jc) + ".POST_CHANGE);");
 		jc.add("addSelectionChangedListener(this);");
 		jc.add("}");
 		jc.addLineBreak();
@@ -191,12 +241,12 @@ public class EditorGenerator extends UIJavaBaseGenerator<ArtifactParameter<Gener
 
 	private void addInitMethod(JavaComposite jc) {
 		jc.add("@" + jc.getClassName(Override.class));
-		jc.add("public void init(" + I_EDITOR_SITE(jc) + " site, " + I_EDITOR_INPUT(jc) + " input) throws " + PART_INIT_EXCEPTION(jc) + " {");
+		jc.add("public void init(" + I_EDITOR_SITE(jc) + " site, " + I_EDITOR_INPUT(jc) + " input) throws "
+				+ PART_INIT_EXCEPTION(jc) + " {");
 		jc.add("super.init(site, input);");
 		jc.addLineBreak();
-		jc.addComment(
-			"Show the 'presentation' action set with the 'Toggle Block Selection" +
-	        "Mode' and 'Show Whitespace Characters' actions.");
+		jc.addComment("Show the 'presentation' action set with the 'Toggle Block Selection"
+				+ "Mode' and 'Show Whitespace Characters' actions.");
 		jc.add(I_WORKBENCH_PAGE(jc) + " page = site.getPage();");
 		jc.add("page.showActionSet(\"org.eclipse.ui.edit.text.actionSet.presentation\");");
 		jc.add("}");
@@ -331,8 +381,10 @@ public class EditorGenerator extends UIJavaBaseGenerator<ArtifactParameter<Gener
 	}
 
 	private void addCreateSourceViewerMethod(JavaComposite jc) {
-		jc.add("protected " + I_SOURCE_VIEWER(jc) + " createSourceViewer(" + COMPOSITE(jc) + " parent, " + I_VERTICAL_RULER(jc) + " ruler, int styles) {");
-		jc.add(I_SOURCE_VIEWER(jc) + " viewer = new " + PROJECTION_VIEWER(jc) + "(parent, ruler, getOverviewRuler(), isOverviewRulerVisible(), styles) {");
+		jc.add("protected " + I_SOURCE_VIEWER(jc) + " createSourceViewer(" + COMPOSITE(jc) + " parent, "
+				+ I_VERTICAL_RULER(jc) + " ruler, int styles) {");
+		jc.add(I_SOURCE_VIEWER(jc) + " viewer = new " + PROJECTION_VIEWER(jc)
+				+ "(parent, ruler, getOverviewRuler(), isOverviewRulerVisible(), styles) {");
 		jc.addLineBreak();
 		jc.add("public void setSelection(" + I_SELECTION(jc) + " selection, boolean reveal) {");
 		jc.add("if (!" + getResourceClassName() + ".this.setSelection(selection, reveal)) {");
@@ -351,10 +403,8 @@ public class EditorGenerator extends UIJavaBaseGenerator<ArtifactParameter<Gener
 	// FIXME This method seems not to be used. Remove it?
 	private void addSetCaretMethod(JavaComposite jc) {
 
-		jc.addJavadoc(
-				"Sets the caret to the offset of the given element.",
-				"@param element has to be contained in the resource of this editor."
-		);
+		jc.addJavadoc("Sets the caret to the offset of the given element.",
+				"@param element has to be contained in the resource of this editor.");
 		jc.add("public void setCaret(" + E_OBJECT(jc) + " element, String text) {");
 		jc.add("try {");
 		jc.add("if (element == null || text == null || text.equals(\"\")) {");
@@ -410,17 +460,17 @@ public class EditorGenerator extends UIJavaBaseGenerator<ArtifactParameter<Gener
 		jc.add("public " + I_PROPERTY_SHEET_PAGE(jc) + " getPropertySheetPage() {");
 		jc.add("if (propertySheetPage == null) {");
 		jc.add("propertySheetPage = new " + propertySheetPageClassName + "();");
-		jc.addComment(
-				"add a slightly modified adapter factory that does not return any " +
-				"editors for properties. " +
-				"this way, a model can never be modified through the properties " +
-				"view."
-		);
-		jc.add(ADAPTER_FACTORY(jc) + " adapterFactory = new " + adapterFactoryProviderClassName + "().getAdapterFactory();");
-		jc.add("propertySheetPage.setPropertySourceProvider(new " + ADAPTER_FACTORY_CONTENT_PROVIDER(jc) + "(adapterFactory) {");
-		jc.add("protected " + I_PROPERTY_SOURCE(jc) + " createPropertySource(Object object, " + I_ITEM_PROPERTY_SOURCE(jc) + " itemPropertySource) {");
+		jc.addComment("add a slightly modified adapter factory that does not return any " + "editors for properties. "
+				+ "this way, a model can never be modified through the properties " + "view.");
+		jc.add(ADAPTER_FACTORY(jc) + " adapterFactory = new " + adapterFactoryProviderClassName
+				+ "().getAdapterFactory();");
+		jc.add("propertySheetPage.setPropertySourceProvider(new " + ADAPTER_FACTORY_CONTENT_PROVIDER(jc)
+				+ "(adapterFactory) {");
+		jc.add("protected " + I_PROPERTY_SOURCE(jc) + " createPropertySource(Object object, "
+				+ I_ITEM_PROPERTY_SOURCE(jc) + " itemPropertySource) {");
 		jc.add("return new " + PROPERTY_SOURCE(jc) + "(object, itemPropertySource) {");
-		jc.add("protected " + I_PROPERTY_DESCRIPTOR(jc) + " createPropertyDescriptor(" + I_ITEM_PROPERTY_DESCRIPTOR(jc) + " itemPropertyDescriptor) {");
+		jc.add("protected " + I_PROPERTY_DESCRIPTOR(jc) + " createPropertyDescriptor(" + I_ITEM_PROPERTY_DESCRIPTOR(jc)
+				+ " itemPropertyDescriptor) {");
 		jc.add("return new " + PROPERTY_DESCRIPTOR(jc) + "(object, itemPropertyDescriptor) {");
 		jc.add("public " + CELL_EDITOR(jc) + " createPropertyEditor(" + COMPOSITE(jc) + " composite) {");
 		jc.add("return null;");
@@ -438,10 +488,8 @@ public class EditorGenerator extends UIJavaBaseGenerator<ArtifactParameter<Gener
 	}
 
 	private void addGetOutlinePageMethod(JavaComposite jc) {
-		jc.addJavadoc(
-			"Returns the outline page this is associated with this editor. " +
-			"If no outline page exists, a new one is created."
-		);
+		jc.addJavadoc("Returns the outline page this is associated with this editor. "
+				+ "If no outline page exists, a new one is created.");
 		jc.add("private " + outlinePageClassName + " getOutlinePage() {");
 		jc.add("if (outlinePage == null) {");
 		jc.add("outlinePage = new " + outlinePageClassName + "(this);");
@@ -558,12 +606,12 @@ public class EditorGenerator extends UIJavaBaseGenerator<ArtifactParameter<Gener
 	private void addDisposeMethod(JavaComposite jc) {
 		jc.add("public void dispose() {");
 		jc.add("colorManager.dispose();");
-		jc.add(RESOURCES_PLUGIN(jc) + ".getWorkspace().removeResourceChangeListener(resourceChangeListener);"); 
+		jc.add(RESOURCES_PLUGIN(jc) + ".getWorkspace().removeResourceChangeListener(resourceChangeListener);");
 		jc.add("super.dispose();");
 		jc.add("}");
 		jc.addLineBreak();
 	}
-	
+
 	private void addInitializeResourceObjectMethod(JavaComposite jc) {
 		jc.add("private void initializeResourceObject(" + I_EDITOR_INPUT(jc) + " editorInput) {");
 		jc.add("if (editorInput instanceof " + FILE_EDITOR_INPUT(jc) + ") {");
@@ -583,13 +631,16 @@ public class EditorGenerator extends UIJavaBaseGenerator<ArtifactParameter<Gener
 		jc.add(INPUT_STREAM(jc) + " inputStream = storage.getContents();");
 		jc.add("uri = URI.createURI(storage.getName(), true);");
 		jc.add(RESOURCE_SET(jc) + " resourceSet = getResourceSet();");
-		jc.add(iTextResourceClassName + " resource = (" + iTextResourceClassName + ") resourceSet.createResource(uri);");
+		jc.add(iTextResourceClassName + " resource = (" + iTextResourceClassName
+				+ ") resourceSet.createResource(uri);");
 		jc.add("resource.load(inputStream, null);");
 		jc.add("setResource(resource);");
 		jc.add("} catch (" + CORE_EXCEPTION(jc) + " e) {");
-		jc.add(uiPluginActivatorClassName + ".logError(\"Exception while loading resource (\" + uri + \") in \" + getClass().getSimpleName() + \".\", e);");
+		jc.add(uiPluginActivatorClassName
+				+ ".logError(\"Exception while loading resource (\" + uri + \") in \" + getClass().getSimpleName() + \".\", e);");
 		jc.add("} catch (" + IO_EXCEPTION(jc) + " e) {");
-		jc.add(uiPluginActivatorClassName + ".logError(\"Exception while loading resource (\" + uri + \") in \" + getClass().getSimpleName() + \".\", e);");
+		jc.add(uiPluginActivatorClassName
+				+ ".logError(\"Exception while loading resource (\" + uri + \") in \" + getClass().getSimpleName() + \".\", e);");
 		jc.add("}");
 		jc.add("}");
 		jc.addLineBreak();
@@ -598,18 +649,20 @@ public class EditorGenerator extends UIJavaBaseGenerator<ArtifactParameter<Gener
 	private void addInitializeResourceObjectFromFileMethod(JavaComposite jc) {
 		jc.add("private void initializeResourceObjectFromFile(" + FILE_EDITOR_INPUT(jc) + " input) {");
 		jc.add(I_FILE(jc) + " inputFile = input.getFile();");
-		
+
 		// TODO activating the DSL nature here is ugly
 		jc.add(natureClassName + ".activate(inputFile.getProject());");
 
 		jc.add("String path = inputFile.getFullPath().toString();");
 		jc.add(URI(jc) + " uri = " + URI(jc) + ".createPlatformResourceURI(path, true);");
 		jc.add(RESOURCE_SET(jc) + " resourceSet = getResourceSet();");
-		jc.add(iTextResourceClassName + " loadedResource = (" + iTextResourceClassName + ") resourceSet.getResource(uri, false);");
+		jc.add(iTextResourceClassName + " loadedResource = (" + iTextResourceClassName
+				+ ") resourceSet.getResource(uri, false);");
 		jc.add("if (loadedResource == null) {");
 		jc.add("try {");
-		jc.add(RESOURCE(jc)  + " demandLoadedResource = null;");
-		jc.addComment("here we do not use getResource(), because 'resource' might be null, which is ok when initializing the resource object");
+		jc.add(RESOURCE(jc) + " demandLoadedResource = null;");
+		jc.addComment(
+				"here we do not use getResource(), because 'resource' might be null, which is ok when initializing the resource object");
 		jc.add(iTextResourceClassName + " currentResource = this.resource;");
 		jc.add("if (currentResource != null && !currentResource.getURI().fileExtension().equals(uri.fileExtension())) {");
 		jc.addComment("do not attempt to load if file extension has changed in a 'save as' operation	");
@@ -621,12 +674,15 @@ public class EditorGenerator extends UIJavaBaseGenerator<ArtifactParameter<Gener
 		jc.add("setResource((" + iTextResourceClassName + ") demandLoadedResource);");
 		jc.add("} else {");
 		jc.addComment("the resource was not loaded by an EMFText resource, but some other EMF resource");
-		jc.add(uiPluginActivatorClassName + ".showErrorDialog(\"Invalid resource.\", \"The file '\" + uri.lastSegment() + \"' of type '\" + uri.fileExtension() + \"' can not be handled by the " + getResourceClassName() + ".\");");
+		jc.add(uiPluginActivatorClassName
+				+ ".showErrorDialog(\"Invalid resource.\", \"The file '\" + uri.lastSegment() + \"' of type '\" + uri.fileExtension() + \"' can not be handled by the "
+				+ getResourceClassName() + ".\");");
 		jc.addComment("close this editor because it can not present the resource");
 		jc.add("close(false);");
 		jc.add("}");
 		jc.add("} catch (Exception e) {");
-		jc.add(uiPluginActivatorClassName + ".logError(\"Exception while loading resource in \" + this.getClass().getSimpleName() + \".\", e);");
+		jc.add(uiPluginActivatorClassName
+				+ ".logError(\"Exception while loading resource in \" + this.getClass().getSimpleName() + \".\", e);");
 		jc.add("}");
 		jc.add("} else {");
 		jc.add("setResource(loadedResource);");
@@ -644,14 +700,16 @@ public class EditorGenerator extends UIJavaBaseGenerator<ArtifactParameter<Gener
 		jc.addComment("Occurrence initiation, need ITextResource and ISourceViewer.");
 		jc.add("highlighting = new " + highlightingClassName + "(getResource(), viewer, colorManager, this);");
 		jc.addLineBreak();
-		jc.add("projectionSupport = new " + PROJECTION_SUPPORT(jc) + "(viewer, getAnnotationAccess(), getSharedColors());");
+		jc.add("projectionSupport = new " + PROJECTION_SUPPORT(jc)
+				+ "(viewer, getAnnotationAccess(), getSharedColors());");
 		jc.add("projectionSupport.install();");
 		jc.addLineBreak();
 		jc.addComment("turn projection mode on");
 		jc.add("viewer.doOperation(" + PROJECTION_VIEWER(jc) + ".TOGGLE);");
 		jc.add("codeFoldingManager = new " + codeFoldingManagerClassName + "(viewer, this);");
 		jc.addLineBreak();
-		jc.add(I_CONTEXT_SERVICE(jc) + " contextService = ("+ I_CONTEXT_SERVICE(jc) + ") getSite().getService(" + I_CONTEXT_SERVICE(jc) + ".class);");
+		jc.add(I_CONTEXT_SERVICE(jc) + " contextService = (" + I_CONTEXT_SERVICE(jc) + ") getSite().getService("
+				+ I_CONTEXT_SERVICE(jc) + ".class);");
 		jc.add("contextService.activateContext(\"" + getContext().getEditorScopeID() + "\");");
 		jc.add("}");
 		jc.addLineBreak();
@@ -682,13 +740,15 @@ public class EditorGenerator extends UIJavaBaseGenerator<ArtifactParameter<Gener
 		jc.add("return null;");
 		jc.add("}");
 		jc.add("};");
-		jc.add("setAction(" + I_TEXT_EDITOR_ACTION_CONSTANTS(jc) + ".RULER_CLICK, new " + SELECT_MARKER_RULES_ACTION(jc) + "(resourceBundle, \"SelectAnnotationRulerAction.\", this, getVerticalRuler()) {");
+		jc.add("setAction(" + I_TEXT_EDITOR_ACTION_CONSTANTS(jc) + ".RULER_CLICK, new " + SELECT_MARKER_RULES_ACTION(jc)
+				+ "(resourceBundle, \"SelectAnnotationRulerAction.\", this, getVerticalRuler()) {");
 		jc.add("public void run() {");
 		jc.add("runWithEvent(null);");
 		jc.add("}");
 		jc.addLineBreak();
 		jc.add("public void runWithEvent(" + EVENT(jc) + " event) {");
-		jc.add(I_TEXT_OPERATION_TARGET(jc) + " operation = (" + I_TEXT_OPERATION_TARGET(jc) + ") getAdapter(" + I_TEXT_OPERATION_TARGET(jc) + ".class);");
+		jc.add(I_TEXT_OPERATION_TARGET(jc) + " operation = (" + I_TEXT_OPERATION_TARGET(jc) + ") getAdapter("
+				+ I_TEXT_OPERATION_TARGET(jc) + ".class);");
 		jc.add("final int opCode = " + I_SOURCE_VIEWER(jc) + ".QUICK_ASSIST;");
 		jc.add("if (operation != null && operation.canDoOperation(opCode)) {");
 		jc.add(POSITION(jc) + " position = getPosition();");
@@ -753,12 +813,11 @@ public class EditorGenerator extends UIJavaBaseGenerator<ArtifactParameter<Gener
 
 	private void addModelResourceChangeListenerClass(JavaComposite jc) {
 		jc.addJavadoc(
-				"Reacts to changes of the text resource displayed in the editor and " +
-				"resources cross-referenced by it. Cross-referenced resources are " +
-				"unloaded, the displayed resource is reloaded. An attempt to resolve all " +
-				"proxies in the displayed resource is made after each change.",
-				"The code pretty much corresponds to what EMF generates for a tree editor."
-		);
+				"Reacts to changes of the text resource displayed in the editor and "
+						+ "resources cross-referenced by it. Cross-referenced resources are "
+						+ "unloaded, the displayed resource is reloaded. An attempt to resolve all "
+						+ "proxies in the displayed resource is made after each change.",
+				"The code pretty much corresponds to what EMF generates for a tree editor.");
 		jc.add("private class ModelResourceChangeListener implements " + I_RESOURCE_CHANGE_LISTENER(jc) + " {");
 		jc.add("public void resourceChanged(" + I_RESOURCE_CHANGE_EVENT(jc) + " event) {");
 		jc.add(I_RESOURCE_DELTA(jc) + " delta = event.getDelta();");
@@ -770,9 +829,21 @@ public class EditorGenerator extends UIJavaBaseGenerator<ArtifactParameter<Gener
 		jc.add("if (delta.getResource().getType() != " + I_RESOURCE(jc) + ".FILE) {");
 		jc.add("return true;");
 		jc.add("}");
+
+		String option = OptionManager.INSTANCE.getStringOptionValue(getContext().getConcreteSyntax(),
+				OptionTypes.REFERENCED_RESOURCE_EXTENSIONS);
+		if (option != null) {
+			jc.add("String extension = delta.getResource().getFileExtension();");
+			jc.add("if (!REFERENCED_EXTENSIONS.contains(extension)) {");
+			jc.add("return true;");
+			jc.add("}");
+		}
+
 		jc.add("int deltaKind = delta.getKind();");
-		jc.add("if (deltaKind == " + I_RESOURCE_DELTA(jc) + ".CHANGED && delta.getFlags() != " + I_RESOURCE_DELTA(jc) + ".MARKERS) {");
-		jc.add(URI(jc) + " platformURI = " + URI(jc) + ".createPlatformResourceURI(delta.getFullPath().toString(), true);");
+		jc.add("if (deltaKind == " + I_RESOURCE_DELTA(jc) + ".CHANGED && delta.getFlags() != " + I_RESOURCE_DELTA(jc)
+				+ ".MARKERS) {");
+		jc.add(URI(jc) + " platformURI = " + URI(jc)
+				+ ".createPlatformResourceURI(delta.getFullPath().toString(), true);");
 		jc.add(RESOURCE(jc) + " changedResource = resourceSet.getResource(platformURI, false);");
 		jc.add("if (changedResource != null) {");
 		jc.add("changedResource.unload();");
@@ -781,8 +852,10 @@ public class EditorGenerator extends UIJavaBaseGenerator<ArtifactParameter<Gener
 		jc.addComment("reload the resource displayed in the editor");
 		jc.add("resourceSet.getResource(currentResource.getURI(), true);");
 		jc.add("}");
-		// TODO this is kind of strange, since the code is the same as in setResource()
-		// I was wondering why setResource() is not called after reloading the resource
+		// TODO this is kind of strange, since the code is the same as in
+		// setResource()
+		// I was wondering why setResource() is not called after reloading the
+		// resource
 		jc.add("if (currentResource != null && currentResource.getErrors().isEmpty()) {");
 		jc.add(ECORE_UTIL(jc) + ".resolveAll(currentResource);");
 		jc.add("}");

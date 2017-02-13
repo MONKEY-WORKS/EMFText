@@ -50,6 +50,7 @@ import org.emftext.sdk.concretesyntax.TokenStyle;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.emftext.sdk.concretesyntax.impl.ConcreteSyntaxImpl#getAnnotations <em>Annotations</em>}</li>
  *   <li>{@link org.emftext.sdk.concretesyntax.impl.ConcreteSyntaxImpl#getName <em>Name</em>}</li>
@@ -69,7 +70,6 @@ import org.emftext.sdk.concretesyntax.TokenStyle;
  *   <li>{@link org.emftext.sdk.concretesyntax.impl.ConcreteSyntaxImpl#get_eClassUtil <em>eClass Util</em>}</li>
  *   <li>{@link org.emftext.sdk.concretesyntax.impl.ConcreteSyntaxImpl#isAbstract <em>Abstract</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

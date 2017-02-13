@@ -39,7 +39,7 @@ import static org.emftext.sdk.codegen.resource.ClassNameConstants.OUTPUT_STREAM_
 import static org.emftext.sdk.codegen.resource.ClassNameConstants.PATH;
 import static org.emftext.sdk.codegen.resource.ClassNameConstants.PLATFORM;
 import static org.emftext.sdk.codegen.resource.ClassNameConstants.RESOURCES_PLUGIN;
-import static org.emftext.sdk.codegen.resource.ClassNameConstants.SUB_PROGRESS_MONITOR;
+import static org.emftext.sdk.codegen.resource.ClassNameConstants.SUB_MONITOR;
 import static org.emftext.sdk.codegen.resource.ClassNameConstants.URL;
 import static org.emftext.sdk.codegen.resource.ClassNameConstants.ZIP_ENTRY;
 import static org.emftext.sdk.codegen.resource.ClassNameConstants.ZIP_FILE;
@@ -141,7 +141,7 @@ public class NewProjectWizardLogicGenerator extends UIJavaBaseGenerator<Artifact
 		sc.addLineBreak();
 		sc.add("if (newProjectZipURL != null) {");
 		sc.addComment("Copy plug-in project code");
-		sc.add("extractProject(projectFolderFile, newProjectZipURL, new " + SUB_PROGRESS_MONITOR(sc) + "(monitor, 100));");
+		sc.add("extractProject(projectFolderFile, newProjectZipURL, " + SUB_MONITOR(sc) + ".convert(monitor, 100));");
 		sc.add("}");
 		sc.addLineBreak();
 		sc.add("if (monitor.isCanceled()) {");

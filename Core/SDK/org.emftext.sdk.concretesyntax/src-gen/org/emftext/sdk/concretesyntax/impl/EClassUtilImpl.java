@@ -26,8 +26,6 @@ import org.emftext.sdk.concretesyntax.EClassUtil;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>EClass Util</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

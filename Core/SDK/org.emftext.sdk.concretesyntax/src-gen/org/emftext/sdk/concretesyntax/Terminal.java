@@ -25,10 +25,10 @@ import org.eclipse.emf.codegen.ecore.genmodel.GenFeature;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.emftext.sdk.concretesyntax.Terminal#getFeature <em>Feature</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.emftext.sdk.concretesyntax.ConcretesyntaxPackage#getTerminal()
  * @model abstract="true"

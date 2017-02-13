@@ -30,11 +30,11 @@ import org.emftext.sdk.concretesyntax.OptionTypes;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.emftext.sdk.concretesyntax.impl.OptionImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.emftext.sdk.concretesyntax.impl.OptionImpl#getValue <em>Value</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

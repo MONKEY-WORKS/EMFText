@@ -35,11 +35,11 @@ import org.emftext.sdk.concretesyntax.RegexOwner;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.emftext.sdk.concretesyntax.impl.ReferencableTokenDefinitionImpl#getRegex <em>Regex</em>}</li>
  *   <li>{@link org.emftext.sdk.concretesyntax.impl.ReferencableTokenDefinitionImpl#getAttributeReferences <em>Attribute References</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

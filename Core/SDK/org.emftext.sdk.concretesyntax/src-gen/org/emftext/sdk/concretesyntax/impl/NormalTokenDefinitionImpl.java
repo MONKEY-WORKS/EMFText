@@ -37,11 +37,11 @@ import org.emftext.sdk.concretesyntax.RegexPart;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.emftext.sdk.concretesyntax.impl.NormalTokenDefinitionImpl#getAnnotations <em>Annotations</em>}</li>
  *   <li>{@link org.emftext.sdk.concretesyntax.impl.NormalTokenDefinitionImpl#getRegexParts <em>Regex Parts</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

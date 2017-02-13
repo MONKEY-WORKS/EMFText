@@ -119,7 +119,7 @@ public class OutlinePageTreeViewerComparatorGenerator extends UIJavaBaseGenerato
 	}
 
 	private void addGetComparatorMethod(JavaComposite sc) {
-		sc.add("public " + COMPARATOR(sc) + "<?> getComparator() {");
+		sc.add("public " + COMPARATOR(sc) + "<? super String> getComparator() {");
 		sc.add("return this.comparator;");
 		sc.add("}");
 		sc.addLineBreak();

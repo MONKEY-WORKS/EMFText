@@ -29,11 +29,11 @@ import org.emftext.sdk.concretesyntax.KeyValuePair;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.emftext.sdk.concretesyntax.impl.KeyValuePairImpl#getKey <em>Key</em>}</li>
  *   <li>{@link org.emftext.sdk.concretesyntax.impl.KeyValuePairImpl#getValue <em>Value</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

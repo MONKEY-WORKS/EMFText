@@ -42,13 +42,7 @@ import org.emftext.sdk.concretesyntax.Rule;
  * @generated
  */
 public class RuleItemProvider
-	extends AnnotableItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends AnnotableItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

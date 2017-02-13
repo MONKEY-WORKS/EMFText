@@ -45,6 +45,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.emftext.sdk.concretesyntax.BooleanTerminal;
+import org.emftext.sdk.concretesyntax.Cardinality;
 import org.emftext.sdk.concretesyntax.ConcretesyntaxPackage;
 
 /**
@@ -54,13 +55,7 @@ import org.emftext.sdk.concretesyntax.ConcretesyntaxPackage;
  * @generated
  */
 public class BooleanTerminalItemProvider
-	extends TerminalItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends TerminalItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

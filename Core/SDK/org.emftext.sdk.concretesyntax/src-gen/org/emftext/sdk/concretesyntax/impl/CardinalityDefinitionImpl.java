@@ -29,10 +29,10 @@ import org.emftext.sdk.concretesyntax.ConcretesyntaxPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.emftext.sdk.concretesyntax.impl.CardinalityDefinitionImpl#getCardinality <em>Cardinality</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

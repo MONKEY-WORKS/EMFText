@@ -26,11 +26,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.emftext.sdk.concretesyntax.GenPackageDependentElement#getPackage <em>Package</em>}</li>
  *   <li>{@link org.emftext.sdk.concretesyntax.GenPackageDependentElement#getPackageLocationHint <em>Package Location Hint</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.emftext.sdk.concretesyntax.ConcretesyntaxPackage#getGenPackageDependentElement()
  * @model abstract="true"

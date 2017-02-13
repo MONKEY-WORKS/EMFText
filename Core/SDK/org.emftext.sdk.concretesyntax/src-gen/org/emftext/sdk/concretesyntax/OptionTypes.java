@@ -2544,7 +2544,15 @@ public enum OptionTypes implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	OVERRIDE_DAMAGER_REPAIRER(316, "OVERRIDE_DAMAGER_REPAIRER", "overrideDamagerRepairer");
+	OVERRIDE_DAMAGER_REPAIRER(316, "OVERRIDE_DAMAGER_REPAIRER", "overrideDamagerRepairer"), /**
+	 * The '<em><b>REFERENCED RESOURCE EXTENSIONS</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #REFERENCED_RESOURCE_EXTENSIONS_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	REFERENCED_RESOURCE_EXTENSIONS(317, "REFERENCED_RESOURCE_EXTENSIONS", "referencedResourceExtensions");
 
 /**
 	 * The '<em><b>GENERATE TEST ACTION</b></em>' literal value.
@@ -6641,6 +6649,20 @@ public enum OptionTypes implements Enumerator {
 	 */
 	public static final int OVERRIDE_DAMAGER_REPAIRER_VALUE = 316;
 /**
+	 * The '<em><b>REFERENCED RESOURCE EXTENSIONS</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>REFERENCED RESOURCE EXTENSIONS</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #REFERENCED_RESOURCE_EXTENSIONS
+	 * @model literal="referencedResourceExtensions"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int REFERENCED_RESOURCE_EXTENSIONS_VALUE = 317;
+/**
 	 * An array of all the '<em><b>Option Types</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6962,6 +6984,7 @@ public enum OptionTypes implements Enumerator {
 			OVERRIDE_FOLLOW_SET_GROUP_LIST,
 			OVERRIDE_FOLLOW_SET_GROUP,
 			OVERRIDE_DAMAGER_REPAIRER,
+			REFERENCED_RESOURCE_EXTENSIONS,
 		};
 /**
 	 * A public read-only list of all the '<em><b>Option Types</b></em>' enumerators.
@@ -7329,6 +7352,7 @@ public enum OptionTypes implements Enumerator {
 			case OVERRIDE_FOLLOW_SET_GROUP_LIST_VALUE: return OVERRIDE_FOLLOW_SET_GROUP_LIST;
 			case OVERRIDE_FOLLOW_SET_GROUP_VALUE: return OVERRIDE_FOLLOW_SET_GROUP;
 			case OVERRIDE_DAMAGER_REPAIRER_VALUE: return OVERRIDE_DAMAGER_REPAIRER;
+			case REFERENCED_RESOURCE_EXTENSIONS_VALUE: return REFERENCED_RESOURCE_EXTENSIONS;
 		}
 		return null;
 	}

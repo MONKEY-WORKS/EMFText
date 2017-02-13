@@ -31,11 +31,11 @@ import org.emftext.sdk.concretesyntax.GenPackageDependentElement;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.emftext.sdk.concretesyntax.impl.GenPackageDependentElementImpl#getPackage <em>Package</em>}</li>
  *   <li>{@link org.emftext.sdk.concretesyntax.impl.GenPackageDependentElementImpl#getPackageLocationHint <em>Package Location Hint</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -37,13 +37,7 @@ import org.emftext.sdk.concretesyntax.ConcretesyntaxPackage;
  * @generated
  */
 public class TokenPriorityDirectiveItemProvider
-	extends TokenDirectiveItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends TokenDirectiveItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

@@ -828,8 +828,8 @@ public class ClassNameConstants {
 		return getClassName(jc, "java.io.StringWriter");
 	}
 
-	public static String SUB_PROGRESS_MONITOR(JavaComposite jc) {
-		return getClassName(jc, "org.eclipse.core.runtime.SubProgressMonitor");
+	public static String SUB_MONITOR(JavaComposite jc) {
+		return getClassName(jc, "org.eclipse.core.runtime.SubMonitor");
 	}
 
 	public static String TIMER(JavaComposite jc) {

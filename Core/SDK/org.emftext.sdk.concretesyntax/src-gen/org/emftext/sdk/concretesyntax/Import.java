@@ -28,12 +28,12 @@ package org.emftext.sdk.concretesyntax;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.emftext.sdk.concretesyntax.Import#getPrefix <em>Prefix</em>}</li>
  *   <li>{@link org.emftext.sdk.concretesyntax.Import#getConcreteSyntax <em>Concrete Syntax</em>}</li>
  *   <li>{@link org.emftext.sdk.concretesyntax.Import#getCsLocationHint <em>Cs Location Hint</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.emftext.sdk.concretesyntax.ConcretesyntaxPackage#getImport()
  * @model

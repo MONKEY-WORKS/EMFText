@@ -55,13 +55,7 @@ import org.emftext.sdk.concretesyntax.EnumTerminal;
  * @generated
  */
 public class EnumTerminalItemProvider
-	extends TerminalItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends TerminalItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

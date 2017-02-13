@@ -19,7 +19,7 @@ package org.emftext.sdk.concretesyntax.resource.cs.mopp;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
-import org.eclipse.core.runtime.SubProgressMonitor;
+import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.common.util.URI;
 
 public class CsBuilder implements org.emftext.sdk.concretesyntax.resource.cs.ICsBuilder {
@@ -34,7 +34,7 @@ public class CsBuilder implements org.emftext.sdk.concretesyntax.resource.cs.ICs
 		
 		// We use one tick from the parent monitor because the BuilderAdapter reserves one
 		// tick for the Builder.
-		SubProgressMonitor subMonitor = new SubProgressMonitor(monitor, 1);
+		SubMonitor subMonitor = SubMonitor.convert(monitor, 1);
 		subMonitor.beginTask("Building " + resource.getURI().lastSegment(), 10);
 		// The actual work of the builder can be performed here.
 		subMonitor.worked(10);

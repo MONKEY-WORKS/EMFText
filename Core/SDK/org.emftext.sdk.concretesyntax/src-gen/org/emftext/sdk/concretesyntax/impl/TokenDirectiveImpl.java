@@ -25,8 +25,6 @@ import org.emftext.sdk.concretesyntax.TokenDirective;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Token Directive</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

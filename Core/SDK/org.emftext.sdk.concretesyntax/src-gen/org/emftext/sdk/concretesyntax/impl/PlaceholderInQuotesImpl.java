@@ -28,12 +28,12 @@ import org.emftext.sdk.concretesyntax.PlaceholderInQuotes;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.emftext.sdk.concretesyntax.impl.PlaceholderInQuotesImpl#getPrefix <em>Prefix</em>}</li>
  *   <li>{@link org.emftext.sdk.concretesyntax.impl.PlaceholderInQuotesImpl#getSuffix <em>Suffix</em>}</li>
  *   <li>{@link org.emftext.sdk.concretesyntax.impl.PlaceholderInQuotesImpl#getEscapeCharacter <em>Escape Character</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

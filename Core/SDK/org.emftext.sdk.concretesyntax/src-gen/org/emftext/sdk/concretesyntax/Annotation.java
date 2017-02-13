@@ -26,11 +26,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.emftext.sdk.concretesyntax.Annotation#getType <em>Type</em>}</li>
  *   <li>{@link org.emftext.sdk.concretesyntax.Annotation#getParameters <em>Parameters</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.emftext.sdk.concretesyntax.ConcretesyntaxPackage#getAnnotation()
  * @model
@@ -86,7 +86,9 @@ public interface Annotation extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Returns the annotation value for the given key.
+	 * 
+	 *  Returns the annotation value for the given key.
+	 * 
 	 * <!-- end-model-doc -->
 	 * @model keyRequired="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='for ( org.emftext.sdk.concretesyntax.KeyValuePair parameter : getParameters()) {\n\tif (key.equals(parameter.getKey())){\n\t\tjava.lang.String value = parameter.getValue();\n\t\treturn value;\n\t}\n}\nreturn null;'"

@@ -24,8 +24,6 @@ import org.emftext.sdk.concretesyntax.Definition;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Definition</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

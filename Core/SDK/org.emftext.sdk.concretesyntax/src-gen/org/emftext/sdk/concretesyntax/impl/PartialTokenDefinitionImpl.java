@@ -37,11 +37,11 @@ import org.emftext.sdk.concretesyntax.TokenDirective;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.emftext.sdk.concretesyntax.impl.PartialTokenDefinitionImpl#getRegex <em>Regex</em>}</li>
  *   <li>{@link org.emftext.sdk.concretesyntax.impl.PartialTokenDefinitionImpl#getRegexParts <em>Regex Parts</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -44,13 +44,7 @@ import org.emftext.sdk.concretesyntax.ConcretesyntaxPackage;
  * @generated
  */
 public class ConcreteSyntaxItemProvider
-	extends GenPackageDependentElementItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends GenPackageDependentElementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

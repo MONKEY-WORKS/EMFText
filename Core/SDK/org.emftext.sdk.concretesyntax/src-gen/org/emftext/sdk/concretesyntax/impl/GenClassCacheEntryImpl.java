@@ -33,11 +33,11 @@ import org.emftext.sdk.concretesyntax.ConcretesyntaxPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.emftext.sdk.concretesyntax.impl.GenClassCacheEntryImpl#getTypedKey <em>Key</em>}</li>
  *   <li>{@link org.emftext.sdk.concretesyntax.impl.GenClassCacheEntryImpl#getTypedValue <em>Value</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -28,10 +28,10 @@ import org.emftext.sdk.concretesyntax.WhiteSpaces;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.emftext.sdk.concretesyntax.impl.WhiteSpacesImpl#getAmount <em>Amount</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -40,13 +40,7 @@ import org.emftext.sdk.concretesyntax.CsString;
  * @generated
  */
 public class CsStringItemProvider
-	extends DefinitionItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends DefinitionItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

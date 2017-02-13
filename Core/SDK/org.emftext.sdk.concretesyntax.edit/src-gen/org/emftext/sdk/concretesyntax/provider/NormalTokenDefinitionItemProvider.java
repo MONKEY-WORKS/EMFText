@@ -46,13 +46,7 @@ import org.emftext.sdk.concretesyntax.NormalTokenDefinition;
  * @generated
  */
 public class NormalTokenDefinitionItemProvider
-	extends CompleteTokenDefinitionItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends CompleteTokenDefinitionItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

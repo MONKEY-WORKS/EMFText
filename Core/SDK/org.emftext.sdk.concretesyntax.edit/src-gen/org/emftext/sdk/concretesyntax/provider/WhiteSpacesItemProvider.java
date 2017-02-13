@@ -40,13 +40,7 @@ import org.emftext.sdk.concretesyntax.WhiteSpaces;
  * @generated
  */
 public class WhiteSpacesItemProvider
-	extends DefinitionItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends DefinitionItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

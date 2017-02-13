@@ -27,10 +27,10 @@ import org.emftext.sdk.concretesyntax.RegexPart;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.emftext.sdk.concretesyntax.impl.RegexPartImpl#getRegex <em>Regex</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -28,13 +28,13 @@ import org.emftext.sdk.concretesyntax.QuotedTokenDefinition;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.emftext.sdk.concretesyntax.impl.QuotedTokenDefinitionImpl#getPrefix <em>Prefix</em>}</li>
  *   <li>{@link org.emftext.sdk.concretesyntax.impl.QuotedTokenDefinitionImpl#getSuffix <em>Suffix</em>}</li>
  *   <li>{@link org.emftext.sdk.concretesyntax.impl.QuotedTokenDefinitionImpl#getEscapeCharacter <em>Escape Character</em>}</li>
  *   <li>{@link org.emftext.sdk.concretesyntax.impl.QuotedTokenDefinitionImpl#getSynthesizedRegex <em>Synthesized Regex</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

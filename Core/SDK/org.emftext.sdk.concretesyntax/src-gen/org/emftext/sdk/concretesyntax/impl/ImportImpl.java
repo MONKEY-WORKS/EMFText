@@ -38,13 +38,13 @@ import org.emftext.sdk.concretesyntax.Import;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.emftext.sdk.concretesyntax.impl.ImportImpl#getAnnotations <em>Annotations</em>}</li>
  *   <li>{@link org.emftext.sdk.concretesyntax.impl.ImportImpl#getPrefix <em>Prefix</em>}</li>
  *   <li>{@link org.emftext.sdk.concretesyntax.impl.ImportImpl#getConcreteSyntax <em>Concrete Syntax</em>}</li>
  *   <li>{@link org.emftext.sdk.concretesyntax.impl.ImportImpl#getCsLocationHint <em>Cs Location Hint</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -48,13 +48,7 @@ import org.emftext.sdk.concretesyntax.PartialTokenDefinition;
  * @generated
  */
 public class PartialTokenDefinitionItemProvider
-	extends NamedTokenDefinitionItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends NamedTokenDefinitionItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

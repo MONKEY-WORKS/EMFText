@@ -25,11 +25,11 @@ import org.eclipse.emf.ecore.EEnumLiteral;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.emftext.sdk.concretesyntax.EnumLiteralTerminal#getLiteral <em>Literal</em>}</li>
  *   <li>{@link org.emftext.sdk.concretesyntax.EnumLiteralTerminal#getText <em>Text</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.emftext.sdk.concretesyntax.ConcretesyntaxPackage#getEnumLiteralTerminal()
  * @model

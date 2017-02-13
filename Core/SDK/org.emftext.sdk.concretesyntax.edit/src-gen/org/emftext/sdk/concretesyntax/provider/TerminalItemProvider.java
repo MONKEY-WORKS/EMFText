@@ -40,13 +40,7 @@ import org.emftext.sdk.concretesyntax.Terminal;
  * @generated
  */
 public class TerminalItemProvider
-	extends CardinalityDefinitionItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends CardinalityDefinitionItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

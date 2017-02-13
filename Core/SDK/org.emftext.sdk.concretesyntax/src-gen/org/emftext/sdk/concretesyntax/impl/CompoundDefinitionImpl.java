@@ -25,8 +25,6 @@ import org.emftext.sdk.concretesyntax.ConcretesyntaxPackage;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Compound Definition</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

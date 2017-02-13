@@ -42,12 +42,12 @@ import org.emftext.sdk.concretesyntax.SyntaxElement;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.emftext.sdk.concretesyntax.impl.RuleImpl#getChildren <em>Children</em>}</li>
  *   <li>{@link org.emftext.sdk.concretesyntax.impl.RuleImpl#getMetaclass <em>Metaclass</em>}</li>
  *   <li>{@link org.emftext.sdk.concretesyntax.impl.RuleImpl#getSyntax <em>Syntax</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

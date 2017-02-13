@@ -28,10 +28,10 @@ import org.emftext.sdk.concretesyntax.LineBreak;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.emftext.sdk.concretesyntax.impl.LineBreakImpl#getTab <em>Tab</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

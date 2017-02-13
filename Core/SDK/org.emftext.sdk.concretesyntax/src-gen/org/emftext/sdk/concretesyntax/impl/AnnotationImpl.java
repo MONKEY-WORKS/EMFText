@@ -38,11 +38,11 @@ import org.emftext.sdk.concretesyntax.KeyValuePair;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.emftext.sdk.concretesyntax.impl.AnnotationImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.emftext.sdk.concretesyntax.impl.AnnotationImpl#getParameters <em>Parameters</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
