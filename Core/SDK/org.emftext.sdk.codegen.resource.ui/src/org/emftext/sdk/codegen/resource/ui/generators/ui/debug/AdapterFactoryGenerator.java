@@ -58,21 +58,21 @@ public class AdapterFactoryGenerator extends UIJavaBaseGenerator<ArtifactParamet
 	}
 
 	private void addGetAdapterMethod(JavaComposite sc) {
-		sc.add("@SuppressWarnings(\"rawtypes\")");
-		sc.add("public Object getAdapter(Object adaptableObject, Class adapterType) {");
+		sc.add("@SuppressWarnings(\"unchecked\")");
+		sc.add("public <T> T getAdapter(Object adaptableObject, Class<T> adapterType) {");
 		sc.add("if (adaptableObject instanceof " + I_TEXT_EDITOR(sc) + ") {");
 		sc.add(I_TEXT_EDITOR(sc) + " editorPart = (" + I_TEXT_EDITOR(sc) + ") adaptableObject;");
 		sc.add(I_RESOURCE(sc) + " resource = (" + I_RESOURCE(sc) + ") editorPart.getEditorInput().getAdapter(" + I_RESOURCE(sc) + ".class);");
 		sc.add("if (resource != null) {");
 		sc.add("String extension = resource.getFileExtension();");
 		sc.add("if (extension != null && extension.equals(new " + metaInformationClassName + "().getSyntaxName())) {");
-		sc.add("return new " + uiMetaInformationClassName + "().createResourceAdapter(adaptableObject, adapterType, resource);");
+		sc.add("return (T) new " + uiMetaInformationClassName + "().createResourceAdapter(adaptableObject, adapterType, resource);");
 		sc.add("}");
 		sc.add("}");
 		sc.add("}");
 		sc.add("if (adapterType == " + I_ELEMENT_LABEL_PROVIDER(sc) + ".class && adaptableObject instanceof " + debugVariableClassName + ") {");
 		sc.add("final " + debugVariableClassName + " variable = (" + debugVariableClassName + ") adaptableObject;");
-		sc.add("return new " + I_ELEMENT_LABEL_PROVIDER(sc) + "() {");
+		sc.add("return (T) new " + I_ELEMENT_LABEL_PROVIDER(sc) + "() {");
 		sc.addLineBreak();
 		sc.add("public void update(" + I_LABEL_UPDATE(sc) + "[] updates) {");
 		sc.add("for (" + I_LABEL_UPDATE(sc) + " update : updates) {");
@@ -89,7 +89,7 @@ public class AdapterFactoryGenerator extends UIJavaBaseGenerator<ArtifactParamet
 		sc.add("}");
 		sc.add("if (adapterType == " + I_ELEMENT_CONTENT_PROVIDER(sc) + ".class && adaptableObject instanceof " + debugVariableClassName + ") {");
 		sc.add("final " + debugVariableClassName + " variable = (" + debugVariableClassName + ") adaptableObject;");
-		sc.add("return new " + I_ELEMENT_CONTENT_PROVIDER(sc) + "() {");
+		sc.add("return (T) new " + I_ELEMENT_CONTENT_PROVIDER(sc) + "() {");
 		sc.addLineBreak();
 		sc.add("public void update(" + I_CHILDREN_COUNT_UPDATE(sc) + "[] updates) {");
 		sc.add("try {");
@@ -144,8 +144,7 @@ public class AdapterFactoryGenerator extends UIJavaBaseGenerator<ArtifactParamet
 	}
 
 	private void addGetAdapterListMethod(JavaComposite sc) {
-		sc.add("@SuppressWarnings(\"rawtypes\")");
-		sc.add("public Class[] getAdapterList() {");
+		sc.add("public Class<?>[] getAdapterList() {");
 		sc.add("return new Class[] {" + I_TOGGLE_BREAKPOINTS_TARGET(sc) + ".class};");
 		sc.add("}");
 		sc.addLineBreak();

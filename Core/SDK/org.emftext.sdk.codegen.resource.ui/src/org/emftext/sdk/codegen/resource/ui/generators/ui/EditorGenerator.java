@@ -800,11 +800,12 @@ public class EditorGenerator extends UIJavaBaseGenerator<ArtifactParameter<Gener
 	}
 
 	private void addGetAdapterMethod(JavaComposite jc) {
-		jc.add("public Object getAdapter(@SuppressWarnings(\"rawtypes\") Class required) {");
+		jc.add("@SuppressWarnings(\"unchecked\")");
+		jc.add("public <T> T getAdapter(Class<T> required) {");
 		jc.add("if (" + I_CONTENT_OUTLINE_PAGE(jc) + ".class.equals(required)) {");
-		jc.add("return getOutlinePage();");
+		jc.add("return (T) getOutlinePage();");
 		jc.add("} else if (required.equals(" + I_PROPERTY_SHEET_PAGE(jc) + ".class)) {");
-		jc.add("return getPropertySheetPage();");
+		jc.add("return (T) getPropertySheetPage();");
 		jc.add("}");
 		jc.add("return super.getAdapter(required);");
 		jc.add("}");
