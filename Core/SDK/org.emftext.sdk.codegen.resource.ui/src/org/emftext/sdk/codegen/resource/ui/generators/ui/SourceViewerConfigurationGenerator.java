@@ -85,7 +85,7 @@ public class SourceViewerConfigurationGenerator extends UIJavaBaseGenerator<Arti
 		);
 		sc.add("public " + getResourceClassName() + "(" + iResourceProviderClassName + " resourceProvider, " + iAnnotationModelProviderClassName + " annotationModelProvider, " + colorManagerClassName + " colorManager) {");
 		sc.add("super(" + uiPluginActivatorClassName + ".getDefault().getPreferenceStore());");
-		sc.add("this.fPreferenceStore.setDefault(" + SPELLING_SERVICE(sc) + ".PREFERENCE_SPELLING_ENABLED, true);");
+		// sc.add("this.fPreferenceStore.setDefault(" + SPELLING_SERVICE(sc) + ".PREFERENCE_SPELLING_ENABLED, true);");
 		sc.add("this.fPreferenceStore.setDefault(" + ABSTRACT_DECORATED_TEXT_EDITOR_PREFERENCE_CONSTANTS(sc) + ".EDITOR_TAB_WIDTH, 4);");
 		sc.add("this.fPreferenceStore.setDefault(" + ABSTRACT_DECORATED_TEXT_EDITOR_PREFERENCE_CONSTANTS(sc) + ".EDITOR_HYPERLINK_KEY_MODIFIER, " + ACTION(sc) + ".findModifierString(" + SWT(sc) + ".MOD1));");
 		sc.add("this.resourceProvider = resourceProvider;");
@@ -105,7 +105,7 @@ public class SourceViewerConfigurationGenerator extends UIJavaBaseGenerator<Arti
 		addGetTextHoverMethod(sc);
 		addGetHyperlinkDetectorsMethod(sc);
 		addGetQuickAssistAssistantMethod(sc);
-		addGetReconcilerMethod(sc);
+		// addGetReconcilerMethod(sc);
 		addGetDefaultPrefixesMethod(sc);
 	}
 
